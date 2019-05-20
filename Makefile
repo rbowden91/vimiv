@@ -27,7 +27,7 @@ install:
 	python3 setup.py install --root=$(DESTDIR)/ --record=install_log.txt
 	install -Dm644 config/vimivrc $(DESTDIR)/etc/vimiv/vimivrc
 	install -Dm644 config/keys.conf $(DESTDIR)/etc/vimiv/keys.conf
-	install -Dm644 vimiv.desktop $(DESTDIR)/usr/share/applications/vimiv.desktop
+	install -Dm644 vimiv.desktop $(DESTDIR)$(PREFIX)/share/applications/vimiv.desktop
 	install -Dm644 man/vimiv.1 $(DESTDIR)$(MANPREFIX)/man1/vimiv.1
 	gzip -n -9 -f $(DESTDIR)$(MANPREFIX)/man1/vimiv.1
 	install -Dm644 man/vimivrc.5 $(DESTDIR)$(MANPREFIX)/man5/vimivrc.5
@@ -38,7 +38,7 @@ install:
 
 uninstall:
 	rm -rf $(DESTDIR)/etc/vimiv/
-	rm -f $(DESTDIR)/usr/share/applications/vimiv.desktop
+	rm -f $(DESTDIR)$(PREFIX)/share/applications/vimiv.desktop
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/vimiv.1
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/vimiv.1.gz
 	rm -f $(DESTDIR)$(MANPREFIX)/man5/vimivrc.5
